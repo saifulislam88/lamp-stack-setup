@@ -20,7 +20,7 @@ This guide will walk you through setting up a fully functional LAMP stack on Ubu
     - [7. Add Local DNS Entry](https://github.com/saifulislam88/lamp-stack-setup/blob/main/README.md#7-add-local-dns-entry)
     - [8. Restart Apache](https://github.com/saifulislam88/lamp-stack-setup/blob/main/README.md#8-restart-apache)
     - [9. Test the Application](https://github.com/saifulislam88/lamp-stack-setup/blob/main/README.md#9-test-the-application)
-- Lamp Automatic Setup Using Bash Scripts
+- [Lamp Automatic Setup](LAMP-Installation-Bash-Scripts)
     - [LAMP Installation Bash Scripts](#LAMP-Installation-Bash-Scripts)
 
   
