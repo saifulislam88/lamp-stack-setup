@@ -3,6 +3,25 @@
 
 This guide will walk you through setting up a fully functional LAMP stack on Ubuntu 22.04. It includes Apache Virtual Hosting with HTTPS (self-signed SSL), a PHP application for inserting and viewing data, and MariaDB integration for dynamic content.
 
+
+- [1. Update System Packages](https://github.com/saifulislam88/lamp-stack-setup/blob/main/README.md#1-update-system-packages)
+- [2. Install Required Packages](https://github.com/saifulislam88/lamp-stack-setup/blob/main/README.md#2-install-required-packages)
+- [3. Configure Apache Virtual Hosting](https://github.com/saifulislam88/lamp-stack-setup/blob/main/README.md#3-configure-apache-virtual-hosting)
+    - [3.1. Create a Directory for the Application](https://github.com/saifulislam88/lamp-stack-setup/blob/main/README.md#31-create-a-directory-for-the-application)
+    - [3.2. Create a Virtual Host Configuration](https://github.com/saifulislam88/lamp-stack-setup/blob/main/README.md#32-create-a-virtual-host-configuration)
+    - [3.3. Enable the Site and Reload Apache](https://github.com/saifulislam88/lamp-stack-setup/blob/main/README.md#33-enable-the-site-and-reload-apache)
+- [4. Set Up a Self-Signed SSL Certificate](https://github.com/saifulislam88/lamp-stack-setup/blob/main/README.md#4-set-up-a-self-signed-ssl-certificate)
+- [5. Configure MariaDB](https://github.com/saifulislam88/lamp-stack-setup/blob/main/README.md#5-configure-mariadb)
+    - [5.1. Secure the MariaDB Installation](https://github.com/saifulislam88/lamp-stack-setup/blob/main/README.md#51-secure-the-mariadb-installation)
+    - [5.2. Create a Database and User](https://github.com/saifulislam88/lamp-stack-setup/blob/main/README.md#52-create-a-database-and-user)
+- [6. Create the PHP Application](https://github.com/saifulislam88/lamp-stack-setup/blob/main/README.md#6-create-the-php-application)
+    - [6.1. Write the PHP Code](https://github.com/saifulislam88/lamp-stack-setup/blob/main/README.md#61-write-the-php-code)
+    - [6.2. Set Permissions](https://github.com/saifulislam88/lamp-stack-setup/blob/main/README.md#62-set-permissions)
+- [7. Add Local DNS Entry](https://github.com/saifulislam88/lamp-stack-setup/blob/main/README.md#7-add-local-dns-entry)
+- [8. Restart Apache](https://github.com/saifulislam88/lamp-stack-setup/blob/main/README.md#8-restart-apache)
+- [9. Test the Application](https://github.com/saifulislam88/lamp-stack-setup/blob/main/README.md#9-test-the-application)
+
+
 ---
 
 ## **1. Update System Packages**
