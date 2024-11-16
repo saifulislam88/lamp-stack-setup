@@ -178,30 +178,30 @@ Add the following PHP code:
 
 ```php
 <?php
-\$servername = "localhost";
-\$username = "myappuser";
-\$password = "myapppassword";
-\$dbname = "myappdb";
+$servername = "localhost";
+$username = "myappuser";
+$password = "myapppassword";
+$dbname = "myappdb";
 
-\$conn = new mysqli(\$servername, \$username, \$password, \$dbname);
+$conn = new mysqli($servername, $username, $password, $dbname);
 
-if (\$conn->connect_error) {
-    die("Connection failed: " . \$conn->connect_error);
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
 }
 
-if (\$_SERVER["REQUEST_METHOD"] == "POST") {
-    \$name = \$_POST['name'];
-    \$email = \$_POST['email'];
-    \$sql = "INSERT INTO users (name, email) VALUES ('\$name', '\$email')";
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $sql = "INSERT INTO users (name, email) VALUES ('$name', '$email')";
 
-    if (\$conn->query(\$sql) === TRUE) {
+    if ($conn->query($sql) === TRUE) {
         echo "New record created successfully";
     } else {
-        echo "Error: " . \$sql . "<br>" . \$conn->error;
+        echo "Error: " . $sql . "<br>" . $conn->error;
     }
 }
 
-\$result = \$conn->query("SELECT * FROM users");
+$result = $conn->query("SELECT * FROM users");
 ?>
 <!DOCTYPE html>
 <html>
@@ -223,9 +223,9 @@ if (\$_SERVER["REQUEST_METHOD"] == "POST") {
             <th>Email</th>
         </tr>
         <?php
-        if (\$result->num_rows > 0) {
-            while (\$row = \$result->fetch_assoc()) {
-                echo "<tr><td>" . \$row["id"] . "</td><td>" . \$row["name"] . "</td><td>" . \$row["email"] . "</td></tr>";
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                echo "<tr><td>" . $row["id"] . "</td><td>" . $row["name"] . "</td><td>" . $row["email"] . "</td></tr>";
             }
         }
         ?>
@@ -376,30 +376,30 @@ EOF
 # Create PHP application
 sudo bash -c "cat > $APP_DIR/index.php" <<EOF
 <?php
-\$servername = "localhost";
-\$username = "$DB_USER";
-\$password = "$DB_PASS";
-\$dbname = "$DB_NAME";
+$servername = "localhost";
+$username = "myappuser";
+$password = "myapppassword";
+$dbname = "myappdb";
 
-\$conn = new mysqli(\$servername, \$username, \$password, \$dbname);
+$conn = new mysqli($servername, $username, $password, $dbname);
 
-if (\$conn->connect_error) {
-    die("Connection failed: " . \$conn->connect_error);
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
 }
 
-if (\$_SERVER["REQUEST_METHOD"] == "POST") {
-    \$name = \$_POST['name'];
-    \$email = \$_POST['email'];
-    \$sql = "INSERT INTO users (name, email) VALUES ('\$name', '\$email')";
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $sql = "INSERT INTO users (name, email) VALUES ('$name', '$email')";
 
-    if (\$conn->query(\$sql) === TRUE) {
+    if ($conn->query($sql) === TRUE) {
         echo "New record created successfully";
     } else {
-        echo "Error: " . \$sql . "<br>" . \$conn->error;
+        echo "Error: " . $sql . "<br>" . $conn->error;
     }
 }
 
-\$result = \$conn->query("SELECT * FROM users");
+$result = $conn->query("SELECT * FROM users");
 ?>
 <!DOCTYPE html>
 <html>
@@ -421,9 +421,9 @@ if (\$_SERVER["REQUEST_METHOD"] == "POST") {
             <th>Email</th>
         </tr>
         <?php
-        if (\$result->num_rows > 0) {
-            while (\$row = \$result->fetch_assoc()) {
-                echo "<tr><td>" . \$row["id"] . "</td><td>" . \$row["name"] . "</td><td>" . \$row["email"] . "</td></tr>";
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                echo "<tr><td>" . $row["id"] . "</td><td>" . $row["name"] . "</td><td>" . $row["email"] . "</td></tr>";
             }
         }
         ?>
