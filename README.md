@@ -22,12 +22,11 @@ This guide will walk you through setting up a fully functional LAMP stack on Ubu
     - [9. Test the Application](https://github.com/saifulislam88/lamp-stack-setup/blob/main/README.md#9-test-the-application)
 - [Lamp Automatic Setup](#LAMP-Installation-Bash-Scripts)
     - [LAMP Installation Bash Scripts](#LAMP-Installation-Bash-Scripts)
-
-  
+    - [Steps to Run the Script](#Steps-to-Run-the-Script)
+- [LAMP Stack Management Commands Cheat Sheet](###LAMP-Stack-Management-Command-Cheat-Sheet)
 
 ---
 ## Lamp Manual Installation
-
 
 ## **1. Update System Packages**
 
@@ -446,5 +445,194 @@ sudo systemctl restart apache2
 echo "LAMP stack with self-signed SSL, PHP, and MariaDB setup is complete!"
 echo "Access your application at https://myapp.local"
 ```
+
+## Steps to Run the Script | Create the Script File:
+
+`vim lamp-setup.sh`
+
+## Make the Script Executable:
+
+`chmod +x lamp-setup.sh`
+
+## Run the Script:
+
+`sudo ./lamp-setup.sh`
+
+
+
+
+## LAMP Stack Management Command Cheat Sheet
+
+### **Apache Management**
+
+- Service Management
+```bash
+sudo systemctl status apache2          # Check Apache status
+sudo systemctl start apache2           # Start Apache service
+sudo systemctl stop apache2            # Stop Apache service
+sudo systemctl restart apache2         # Restart Apache service
+sudo systemctl reload apache2          # Reload configuration without stopping
+sudo systemctl enable apache2          # Enable Apache to start on boot
+sudo systemctl disable apache2         # Disable Apache from starting on boot
+```
+
+- Configuration Files
+```bash
+sudo nano /etc/apache2/apache2.conf    # Edit main configuration file
+sudo nano /etc/apache2/sites-available/000-default.conf  # Edit default virtual host
+sudo nano /etc/apache2/sites-available/myapp.conf        # Edit custom virtual host
+sudo a2ensite myapp.conf               # Enable a virtual host
+sudo a2dissite myapp.conf              # Disable a virtual host
+sudo apachectl configtest              # Test configuration syntax
+```
+
+- Modules Management
+```bash
+sudo a2enmod rewrite                   # Enable a module (e.g., rewrite)
+sudo a2dismod rewrite                  # Disable a module
+```
+
+- Logs
+```bash
+sudo tail -f /var/log/apache2/access.log  # Monitor access logs
+sudo tail -f /var/log/apache2/error.log   # Monitor error logs
+```
+
+---
+
+### **PHP Management**
+
+- PHP Version
+```bash
+php -v                                  # Check installed PHP version
+```
+
+- PHP Configuration
+```bash
+sudo nano /etc/php/8.1/apache2/php.ini  # Edit PHP configuration file
+sudo systemctl restart apache2          # Restart Apache to apply changes
+```
+
+- Debugging PHP Code
+Create a test PHP file:
+```bash
+sudo nano /var/www/html/info.php
+```
+
+Add the following code:
+```php
+<?php
+phpinfo();
+?>
+```
+
+**Access it via the browser: `http://your-server-ip/info.php`**
+
+---
+
+### **MariaDB Management**
+
+- Service Management
+```bash
+sudo systemctl status mariadb           # Check MariaDB status
+sudo systemctl start mariadb            # Start MariaDB service
+sudo systemctl stop mariadb             # Stop MariaDB service
+sudo systemctl restart mariadb          # Restart MariaDB service
+sudo systemctl enable mariadb           # Enable MariaDB to start on boot
+sudo systemctl disable mariadb          # Disable MariaDB from starting on boot
+```
+
+- Database Commands
+```bash
+sudo mysql -u root -p                   # Log in to MariaDB as root
+SHOW DATABASES;                         # List all databases
+USE myappdb;                            # Switch to a database
+SHOW TABLES;                            # List all tables in the current database
+DESCRIBE users;                         # Show table structure
+```
+
+- User Management
+```sql
+CREATE USER 'myuser'@'localhost' IDENTIFIED BY 'mypassword';
+GRANT ALL PRIVILEGES ON myappdb.* TO 'myuser'@'localhost';
+FLUSH PRIVILEGES;
+```
+
+- Backups
+```bash
+mysqldump -u root -p myappdb > backup.sql  # Backup a database
+mysql -u root -p myappdb < backup.sql      # Restore a database
+```
+
+---
+
+### **SSL Certificate Management**
+
+- Self-Signed SSL Certificate Creation
+```bash
+sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
+  -keyout /etc/apache2/ssl/myapp.key \
+  -out /etc/apache2/ssl/myapp.crt \
+  -subj "/C=US/ST=State/L=City/O=Organization/CN=myapp.local"
+```
+
+- Apache SSL Configuration
+```bash
+sudo nano /etc/apache2/sites-available/myapp.conf
+```
+
+Ensure the following lines are present:
+```apache
+SSLEngine on
+SSLCertificateFile /etc/apache2/ssl/myapp.crt
+SSLCertificateKeyFile /etc/apache2/ssl/myapp.key
+```
+
+- Testing SSL
+Use OpenSSL to test the certificate:
+```bash
+openssl x509 -in /etc/apache2/ssl/myapp.crt -text -noout
+```
+
+---
+
+### **Monitoring and Logs**
+
+- General Logs
+```bash
+sudo tail -f /var/log/syslog              # Monitor system logs
+sudo journalctl -u apache2               # Apache logs
+sudo journalctl -u mariadb               # MariaDB logs
+```
+
+- PHP Error Logs
+```bash
+sudo tail -f /var/log/apache2/error.log  # Check for PHP-related errors
+```
+
+---
+
+### **Miscellaneous Commands**
+
+- Open Firewall Ports
+```bash
+sudo ufw allow 80/tcp                    # Allow HTTP traffic
+sudo ufw allow 443/tcp                   # Allow HTTPS traffic
+sudo ufw reload                          # Reload UFW rules
+```
+
+- Enable DNS for Local Testing
+Edit the `/etc/hosts` file:
+```bash
+sudo nano /etc/hosts
+```
+
+Add:
+```plaintext
+127.0.0.1 myapp.local
+```
+
+---
+
 
 
