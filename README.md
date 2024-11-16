@@ -509,6 +509,9 @@ sudo tail -f /var/log/apache2/error.log   # Monitor error logs
 php -v                                  # Check installed PHP version
 ```
 
+https://vitux.com/how-to-install-php-72-73-74-on-ubuntu-22-04/\
+https://medium.com/techvblogs/how-to-install-multiple-php-versions-on-ubuntu-22-04-3a0474b07385
+
 - PHP Configuration
 ```bash
 sudo nano /etc/php/8.1/apache2/php.ini  # Edit PHP configuration file
