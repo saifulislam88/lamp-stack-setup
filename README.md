@@ -3,6 +3,8 @@
 
 This guide will walk you through setting up a fully functional LAMP stack on Ubuntu 22.04. It includes Apache Virtual Hosting with HTTPS (self-signed SSL), a PHP application for inserting and viewing data, and MariaDB integration for dynamic content.
 
+![image](https://github.com/user-attachments/assets/c9327b63-3afd-4e89-af1c-8c45509f8f89)
+
 - [Lamp Manual Installation](#lampmanualinstallation)
     - [1. Update System Packages](https://github.com/saifulislam88/lamp-stack-setup/blob/main/README.md#1-update-system-packages)
     - [2. Install Required Packages](https://github.com/saifulislam88/lamp-stack-setup/blob/main/README.md#2-install-required-packages)
