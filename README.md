@@ -22,7 +22,7 @@ This guide will walk you through setting up a fully functional LAMP stack on Ubu
     - [7. Add Local DNS Entry](https://github.com/saifulislam88/lamp-stack-setup/blob/main/README.md#7-add-local-dns-entry)
     - [8. Restart Apache](https://github.com/saifulislam88/lamp-stack-setup/blob/main/README.md#8-restart-apache)
     - [9. Test the Application](https://github.com/saifulislam88/lamp-stack-setup/blob/main/README.md#9-test-the-application)
-- [Lamp Automatic Setup](#LAMP-Installation-Bash-Scripts)
+- [Lamp Automatic Installation](#LAMP-Automatic-Installation-Bash-Scripts)
     - [LAMP Installation Bash Scripts](#LAMP-Installation-Bash-Scripts)
     - [Steps to Run the Script](#Steps-to-Run-the-Script)
 - [LAMP Stack Management Commands Cheat Sheet](###LAMP-Stack-Management-Command-Cheat-Sheet)
@@ -279,13 +279,13 @@ sudo systemctl restart apache2
 2. Insert data into the form.  
 3. View the submitted data in the table below the form.
 
----
-
 #### **Congratulations!**  
 Your LAMP stack with HTTPS and PHP-MariaDB integration is successfully set up.
 
 
-### LAMP Installation Bash Scripts
+---
+
+### LAMP Automatic Installation Bash Scripts
 
 ```sh
 #!/bin/bash
