@@ -178,12 +178,12 @@ Add the following PHP code:
 
 ```php
 <?php
-$servername = "localhost";
-$username = "myappuser";
-$password = "myapppassword";
-$dbname = "myappdb";
+$host = "localhost";
+$user = "myappuser";
+$pass = "myapppassword";
+$db = "myappdb";
 
-$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = new mysqli($host, $user, $pass, $db);
 
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
@@ -232,6 +232,7 @@ $result = $conn->query("SELECT * FROM users");
     </table>
 </body>
 </html>
+
 ```
 
 ---
